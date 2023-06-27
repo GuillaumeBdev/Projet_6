@@ -1,11 +1,25 @@
-fetch('http://localhost:5678/api/works')
-  .then(response => response.json())
-  .then(data => {
-    // Faites quelque chose avec les données récupérées
-    console.log(data);
-  })
-  .catch(error => {
-    // Gérez les erreurs éventuelles
-    console.error('Une erreur s\'est produite:', error);
-  });
-  
+const getWorks = () => {
+  const container = document.getElementById("gallery");
+  fetch("http://localhost:5678/api/works")
+    .then(function(res) {
+      return res.json();
+    })
+    .then(function(data) {
+      console.log(data);
+      for (const works of data) {
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        const figcaptation = document.createElement("figcaption");
+
+        img.src = works.imageUrl;
+        img.alt = works.title;
+        figcaptation.textContent = works.title;
+
+        figure.appendChild(img);
+        figure.appendChild(figcaptation);
+        container.appendChild(figure);
+      }
+    });
+};
+
+getWorks();
