@@ -32,40 +32,45 @@ const displayWorks = async () => {
   }
 };
 
-displayWorks();
-
-const filtres = document.getElementById("filtres");
-
-const handleClick = async (category) => {
+const handleClick = (filter) => {
   const container = document.getElementById("gallery");
   container.innerHTML = "";
 
-  const worksData = await fetchData();
+  fetchData()
+    .then(worksData => {
+      let filteredWorks = worksData;
 
-  const filteredWorks = worksData.filter(work => work.category === category);
+      if (filter !== "all") {
+        filteredWorks = worksData.filter(work => work.category === filter);
+      }
 
-  for (const work of filteredWorks) {
-    const figure = createElement(work);
-    container.appendChild(figure);
-  }
+      for (const work of filteredWorks) {
+        const figure = createElement(work);
+        container.appendChild(figure);
+      }
+    });
 };
+
+const filters = document.getElementById("filters");
 
 const button1 = document.createElement("button");
 button1.textContent = "Tous";
 button1.addEventListener("click", () => handleClick("all"));
-filtres.appendChild(button1);
+filters.appendChild(button1);
 
 const button2 = document.createElement("button");
 button2.textContent = "Projet";
 button2.addEventListener("click", () => handleClick("project"));
-filtres.appendChild(button2);
+filters.appendChild(button2);
 
 const button3 = document.createElement("button");
 button3.textContent = "Appartements";
 button3.addEventListener("click", () => handleClick("apartments"));
-filtres.appendChild(button3);
+filters.appendChild(button3);
 
 const button4 = document.createElement("button");
 button4.textContent = "Hôtel & Restaurant";
 button4.addEventListener("click", () => handleClick("hotel_restaurant"));
-filtres.appendChild(button4);
+filters.appendChild(button4);
+
+displayWorks();
