@@ -34,35 +34,17 @@ const displayWorks = async () => {
 
 displayWorks();
 
-const createButton = () => {
-  const filters = document.getElementById("filters");
 
-  const button1 = document.createElement("button");
-  button1.textContent = "Tous";
-  filters.appendChild(button1);
+const filters = document.getElementById("filters");
 
-  const button2 = document.createElement("button");
-  button2.textContent = "Projet";
-  filters.appendChild(button2);
 
-  const button3 = document.createElement("button");
-  button3.textContent = "Appartements";
-  filters.appendChild(button3);
+const buttonTxt = ["Tous", "Objets", "Appartements", "Hôtel & restaurants"];
 
-  const button4 = document.createElement("button");
-  button4.textContent = "Hôtel & Restaurant";
-  filters.appendChild(button4);
-
-  return [button1, button2, button3, button4];
-};
-
-const displayButton = (button1, button2, button3, button4) => {
-  const filters = document.getElementById("filters");
-  filters.appendChild(button1);
-  filters.appendChild(button2);
-  filters.appendChild(button3);
-  filters.appendChild(button4);
-};
-
-const [button1, button2, button3, button4] = createButton();
-displayButton(button1, button2, button3, button4);
+for (let i = 0; i < buttonTxt.length; i++) {
+  const button = document.createElement("button");
+  button.innerHTML = buttonTxt[i];
+  filters.appendChild(button);
+  button.addEventListener("click", function(){
+    console.log("clicked")
+  });
+}
