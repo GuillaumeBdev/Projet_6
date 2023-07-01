@@ -63,4 +63,11 @@ const filterWorks = (categoryId) => {
       figure.style.display = "none"; 
     }
   }
+  const buttons = document.querySelectorAll("button");
+  for (const button of buttons) {
+    button.classList.remove("active-button");
+  }
+
+  const activeButton = document.querySelector(`button[categoryId="${categoryId}"]`);
+  activeButton.classList.add("active-button");
 };
