@@ -19,6 +19,8 @@ const createFigure = (work) => {
   figure.appendChild(img);
   figure.appendChild(figcaption);
 
+  figure.classList.add(work.categoryId);
+
   return figure;
 };
 
@@ -34,7 +36,6 @@ const displayWorks = async () => {
 
 displayWorks();
 
-
 const filters = document.getElementById("filters");
 
 
@@ -44,7 +45,22 @@ for (let i = 0; i < buttonTxt.length; i++) {
   const button = document.createElement("button");
   button.innerHTML = buttonTxt[i];
   filters.appendChild(button);
+  button.setAttribute("categoryId", i);
   button.addEventListener("click", function(){
     console.log("clicked")
+    const categoryId = parseInt(this.getAttribute("categoryId"), 10);
+    filterWorks(categoryId);
   });
 }
+
+const filterWorks = (categoryId) => {
+  const figures = document.querySelectorAll("figure");
+
+  for (const figure of figures) {
+    if (categoryId === 0 || figure.classList.contains(categoryId.toString())) {
+      figure.style.display = "block";
+    } else {
+      figure.style.display = "none"; 
+    }
+  }
+};
