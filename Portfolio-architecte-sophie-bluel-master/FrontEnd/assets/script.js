@@ -32,26 +32,35 @@ const displayWorks = async () => {
     const figure = createFigure(work);
     container.appendChild(figure);
   }
+
+  const categories = await fetchCategories(); // Nouvelle ligne : Récupération des catégories
+
+  const allCategory = { id: 0, name: "Tous" };
+  categories.unshift(allCategory);
+
+  const filters = document.getElementById("filters");
+
+  for (const category of categories) {
+    const button = document.createElement("button");
+    button.innerHTML = category.name;
+    filters.appendChild(button);
+    button.setAttribute("categoryId", category.id);
+    button.addEventListener("click", function(){
+      console.log("clicked")
+      const categoryId = parseInt(this.getAttribute("categoryId"), 10);
+      filterWorks(categoryId);
+    });
+  }
 };
 
-displayWorks();
-
-const filters = document.getElementById("filters");
-
-
-const buttonTxt = ["Tous", "Objets", "Appartements", "Hôtel & restaurants"];
-
-for (let i = 0; i < buttonTxt.length; i++) {
-  const button = document.createElement("button");
-  button.innerHTML = buttonTxt[i];
-  filters.appendChild(button);
-  button.setAttribute("categoryId", i);
-  button.addEventListener("click", function(){
-    console.log("clicked")
-    const categoryId = parseInt(this.getAttribute("categoryId"), 10);
-    filterWorks(categoryId);
-  });
-}
+const fetchCategories = () => {
+  return fetch("http://localhost:5678/api/categories")
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      return data;
+    });
+};
 
 const filterWorks = (categoryId) => {
   const figures = document.querySelectorAll("figure");
@@ -63,7 +72,9 @@ const filterWorks = (categoryId) => {
       figure.style.display = "none"; 
     }
   }
+  
   const buttons = document.querySelectorAll("button");
+
   for (const button of buttons) {
     button.classList.remove("active-button");
   }
@@ -71,3 +82,5 @@ const filterWorks = (categoryId) => {
   const activeButton = document.querySelector(`button[categoryId="${categoryId}"]`);
   activeButton.classList.add("active-button");
 };
+
+displayWorks();
