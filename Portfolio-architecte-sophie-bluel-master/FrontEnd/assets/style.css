@@ -53,6 +53,59 @@ body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
+#navEdition {
+	width:100%;
+	background-color: black;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 0;
+	}
+
+#navEdition li{
+	list-style-type: none;
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	text-align: center;
+	color: black;
+}
+
+#navEdition{
+	display: flex;
+}
+
+#navEdition li.liblack{
+	color:white;
+}
+
+#navEdition li.publier{
+	line-height: 30px;
+	text-align: center;
+	background-color: white;
+	text-align: center;
+	border-radius: 60px;
+}
+.isLoggedIn{
+	display: none;
+}
+.isLoggedOut{
+	display: block;
+}
+.show{
+	display: flex;
+}
+
+.hide {
+	display: none;
+}
+
+.error {
+	display: inline-block;
+	color: red;
+	font-weight: bold;
+}
 header {
 	display: flex;
 	justify-content: space-between;
@@ -125,6 +178,7 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
 button {
 	font-weight: 700;
 	font-size:16px;
@@ -231,4 +285,8 @@ footer nav ul {
 }
 #login label {
 	margin: 2em 0 1em 0;
+}
+#login textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }

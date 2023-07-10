@@ -33,7 +33,7 @@ const displayWorks = async () => {
     container.appendChild(figure);
   }
 
-  const categories = await fetchCategories(); // Nouvelle ligne : Récupération des catégories
+  const categories = await fetchCategories();
 
   const allCategory = { id: 0, name: "Tous" };
   categories.unshift(allCategory);
@@ -84,3 +84,32 @@ const filterWorks = (categoryId) => {
 };
 
 displayWorks();
+
+window.addEventListener('load', function(){
+    
+  let isLoggedIn = localStorage.getItem("isLoggedIn");
+   let isLoggedOut = localStorage.getItem("isLoggedOut");
+  console.log(isLoggedIn, isLoggedOut)
+  if (isLoggedIn) {
+      const isLoggedInList = document.querySelectorAll(".isLoggedIn");
+       isLoggedInList.forEach(inList => {
+      inList.style.display = "block";
+        });
+  }
+  if (isLoggedOut){
+      const isLoggedOutList= document.querySelectorAll(".isLoggedOut");
+        isLoggedOutList.forEach(outList => {
+      outList.style.display ="none";
+        });
+  }
+});
+
+function deconnexionUser() {
+  localStorage.removeItem("token");
+  localStorage.setItem("isLoggedIn", false);
+  localStorage.setItem("isLoggedOut", true);
+  document.querySelectorAll(".isLoggedOut").forEach(outList => outList.style.display = "block");
+  document.querySelectorAll(".isLoggedIn").forEach(inList => inList.style.display = "none");
+}
+
+document.querySelector(".isLoggedIn").addEventListener("click", deconnexionUser);

@@ -11,14 +11,21 @@
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+	<aside>
+		<nav id="navEdition">
+			<li class="liblack"><i class="fa fa-sharp fa-light fa-pen-to-square"></i>Mode édition</li>
+			<li class="publier">publier les changements</li>
+		</nav>
+	</aside>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<a href="index2.html"><li>login</li></a>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			<li class="isLoggedOut"><a href="index2.html">login</a></li>
+				<li class="isLoggedIn"><a href="#" class="logout">logout</a></li>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
 </header>
