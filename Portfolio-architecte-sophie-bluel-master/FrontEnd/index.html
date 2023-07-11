@@ -9,6 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<script src="https://kit.fontawesome.com/5d25697e9c.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<aside>
@@ -17,6 +18,37 @@
 			<li class="publier">publier les changements</li>
 		</nav>
 	</aside>
+	<a href="#modal1" class="js-modal">ouvrir la boite modal</a>
+	<aside id="modal1" class="modal" aria-hidden="true" role="dialog" style="display:none";>
+				<div class="modalContent js-modal-stop">
+					<span class="closeModal"><i class="fa-solid fa-xmark"></i></span>
+					<div class="modalPhoto">
+						<h2>Galerie photo</h2>
+						<div class="modalGallery"></div>
+						<button id="ajout-image">Ajouter une photo</button>
+						<button id="supprimer-gallery">Supprimer la galerie</button>
+					</div>
+					<div class="modalAjout" style="display: none">
+						<span id="arrowBack"><i class="fa fa-light fa-arrow-left"></i></span>
+						<h2>Ajout photo</h2>
+						<form id="ajoutPhoto-form" enctype="multipart/form-data">
+							<div id="imgContainer" class="imgContainer">
+								<i id="ajoutPhotoIcon" class="fa fa-solid fa-image" style="display: block"></i>
+								<label for="ajoutPhotoBtn" id="ajoutPhotoLabel" class="photoBouton"> + Ajouter photo</label>								<input type="file" name="ajoutPhotoBouton" id="ajoutPhotoBtn" style="display:none;" accept=".png, .jpg, .jpeg">
+								<p id="pContainer" style="display: block">jpg, png: 4mo max</p>
+							</div>
+							<label for="titrePhoto">Titre</label>
+							<span id="titleErrorMessage" class="error"></span>
+							<input id="titrePhoto" type="text" placeholder="" name="titrePhoto">
+							
+							<label for="categoriePhoto">Catégorie</label>
+							<select name="categoriePhoto" id="categoriePhoto">
+							</select>
+							<input type="submit" value="valider" id="validerBtn" class="btn btn-default">
+						</form>
+					</div>
+				</div>
+			</aside>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>

@@ -290,3 +290,152 @@ footer nav ul {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
+.modal {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+
+  }
+  
+.modalContent {
+	background-color: #fff;
+	width: 600px;
+	max-width: calc(100vw-20px);
+	max-height: calc(100vh-20px);
+	padding: 50px;
+	overflow: auto;
+  }
+  
+.closeModal {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+.closeModal:hover,
+.closeModal:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+.modalContent button {
+	display:flex;
+	
+  }
+
+#ajout-image {
+	background-color: #1D6154;
+	color:#fff;
+	margin: 20px 0px 10px 0px;
+  }
+
+#supprimer-gallery{
+	color:red;
+	border:none;
+	font-weight: 400;
+	margin: 0;
+  }
+  
+.modalGallery{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+  }
+
+.figureModal{
+	width: 20%;
+	display: grid;
+	justify-content: center;
+	margin-bottom: 5px;
+  }
+
+.imgModal{
+	position: relative;
+}
+.figCaption{
+	position: relative;
+}
+
+.deleteTrashIcon{
+	position: absolute;
+	padding: 5px;
+	margin: 5px 0 0 80px;
+	background-color: black;
+	color: #fff;
+  }
+  #ajoutPhoto-form {
+	width: 80%;
+	margin: auto;
+	display: grid;
+}
+
+#imgContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 20px 0 20px 0;
+	background-color: #E8F1F6;
+
+}
+
+#ajoutPhotoIcon{
+	font-size: 50px;
+	color: 	#B9C5CC;
+	
+}
+
+#imgPreview {
+	width: 100px;
+	display: block;
+}
+
+
+
+#ajoutPhotoLabel{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: #306685;
+	background-color:#CBD6DC;
+	margin : 2em auto ;
+	width: 180px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 60px ;
+	display: flex;
+	justify-content: center;
+}
+
+#ajoutPhoto-form input, select {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#ajoutPhoto-form label {
+	margin: 2em 0 1em 0;
+}
+#ajoutPhoto-form textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#categoriePhoto{
+	color: black;
+}
+
+.validerBtnFalse{
+	background-color:#A7A7A7 !important;
+}
