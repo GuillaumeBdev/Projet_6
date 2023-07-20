@@ -30,7 +30,7 @@ loginForm.addEventListener('submit', event => {
         window.location.href = 'index.html';
         setStatus(true); 
       } else {
-        console.log('Identifiants incorrects.');
+        alert('Identifiants incorrects.');
         setStatus(false); 
       }
     })
